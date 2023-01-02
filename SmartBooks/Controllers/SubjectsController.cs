@@ -63,6 +63,7 @@ public class SubjectController : BaseController<SubjectController>
             .RuleFor(l => l.Id, f => f.UniqueIndex)
             .RuleFor(l => l.Name, f => $"{f.Hacker.Adjective()} {f.Hacker.Noun()}")
             .RuleFor(l => l.TotalTasks, f=> f.Random.Int(6, 12))
+            .RuleFor(l => l.Score, f=> f.Random.Int(0, 100))
             .RuleFor(l => l.FinishedTasks, (f, l) => f.Random.Int(0, l.TotalTasks));
 
         var fakeSubjects = new Faker<Subject>()
